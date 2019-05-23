@@ -133,6 +133,7 @@ public class MagasinSoapService {
 	
 	@WebMethod
 	public double calculPrixMagasin(
+			
 			@WebParam(name="idMagasin")long idMagasin) {
 		
 		Magasin m = new Magasin();
