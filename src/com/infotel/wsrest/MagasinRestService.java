@@ -34,10 +34,9 @@ public class MagasinRestService {
 	
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ Ajouter +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	@GET
-	@Path("ajouterMagasin/{idMagasin}/{nomMagasin}/{codeMagasin}/{prixDuLocal}")
+	@Path("ajouterMagasin/{nomMagasin}/{codeMagasin}/{prixDuLocal}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public void ajouterMagasin(
-			@PathParam(value="idMagasin")long idMagasin,
 			@PathParam(value="nomMagasin")String nomMagasin,
 			@PathParam(value="codeMagasin")int codeMagasin,
 			@PathParam(value="prixDuLocal")double prixDuLocal) {
