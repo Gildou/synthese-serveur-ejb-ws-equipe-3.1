@@ -57,7 +57,7 @@ public class DaoImpl implements IdaoLocal, IdaoRemote {
 	public long supprimerProduitNonPerissable(long idProduit) {
 		Query q = null;
 		try {
-			q = em.createQuery("DELETE FROM Produit pnp where p.idProduit = :idpnp").setParameter("idpnp", idProduit);
+			q = em.createQuery("DELETE FROM Produit pnp where pnp.idProduit = :idpnp").setParameter("idpnp", idProduit);
 			idProduit = q.executeUpdate();
 
 		} catch (Exception e) {
@@ -70,7 +70,7 @@ public class DaoImpl implements IdaoLocal, IdaoRemote {
 	public long supprimerProduitPerissable(long idProduit) {
 		Query q = null;
 		try {
-			q = em.createQuery("DELETE FROM Produit pp where p.idProduit = :idpp").setParameter("idpp", idProduit);
+			q = em.createQuery("DELETE FROM Produit pp where pp.idProduit = :idpp").setParameter("idpp", idProduit);
 			idProduit = q.executeUpdate();
 
 		} catch (Exception e) {
