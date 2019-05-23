@@ -39,7 +39,7 @@ public class DaoImpl implements IdaoLocal, IdaoRemote {
 	
 	@Override
 	public void ajouterProduit(Produit p, long idMagasin) {
-		Magasin m = new Magasin();
+		Magasin m = em.find(Magasin.class, idMagasin);
 		p.setMagasin(m);
 		em.persist(p);
 	}
@@ -145,7 +145,7 @@ public class DaoImpl implements IdaoLocal, IdaoRemote {
 	public double calculPrixMagasin(Magasin m) {
 		double prixP=0;
 		for(Produit p : m.getProduits()) {
-			prixP = prixP + p.getPrix()*p.getStock();
+			prixP = prixP + (p.getPrix()*p.getStock());
 		}
 			
 		return (prixP + m.getPrixDuLocal());
