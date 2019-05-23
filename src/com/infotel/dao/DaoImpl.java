@@ -130,7 +130,7 @@ public class DaoImpl implements IdaoLocal, IdaoRemote {
 
 	@Override
 	public List<ProduitPerissable> getAllProduitPerissable() {
-		return em.createQuery("SELECT p FROM Produit p where TYPE_PROD=ProdPeri").getResultList();
+		return em.createQuery("SELECT p FROM ProduitPerissable p").getResultList();
 	}
 
 	@Override
