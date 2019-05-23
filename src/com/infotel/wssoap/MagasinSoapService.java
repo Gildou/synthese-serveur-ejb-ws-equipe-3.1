@@ -33,7 +33,6 @@ public class MagasinSoapService {
 	
 	@WebMethod
 	public void ajouterMagasin(
-			@WebParam(name="idMagasin")long idMagasin,
 			@WebParam(name="nomMagasin")String nomMagasin,
 			@WebParam(name="codeMagasin")int codeMagasin,
 			@WebParam(name="prixDuLocal")double prixDuLocal) {
@@ -48,7 +47,6 @@ public class MagasinSoapService {
 	
 	@WebMethod
 	public void ajouterProduitNonPerissable(
-			@WebParam(name="idProduit")long idProduit,
 			@WebParam(name="nomProduit")String nomProduit,
 			@WebParam(name="stock")int stock,
 			@WebParam(name="prix")double prix,
@@ -65,7 +63,6 @@ public class MagasinSoapService {
 	
 	@WebMethod
 	public void ajouterProduitPerissable(
-			@WebParam(name="idProduit")long idProduit,
 			@WebParam(name="nomProduit")String nomProduit,
 			@WebParam(name="stock")int stock,
 			@WebParam(name="prix")double prix,
@@ -90,6 +87,7 @@ public class MagasinSoapService {
 			@WebParam(name="prixDuLocal")double prixDuLocal) {
 	
 	Magasin m = new Magasin();
+	m.setIdMagasin(idMagasin);
 	m.setNomMagasin(nomMagasin);
 	m.setCodeMagasin(codeMagasin);
 	m.setPrixDuLocal(prixDuLocal);
@@ -106,6 +104,7 @@ public class MagasinSoapService {
 			@WebParam(name="modeDemploi")String modeDemploi) {
 	
 	ProduitNonPerissable p = new ProduitNonPerissable();
+	p.setIdProduit(idProduit);
 	p.setNomProduit(nomProduit);
 	p.setStock(stock);
 	p.setPrix(prix);
@@ -123,6 +122,7 @@ public class MagasinSoapService {
 			@WebParam(name="dateLimiteUtilisation")Date dateLimiteUtilisation) {
 	
 	ProduitPerissable p = new ProduitPerissable();
+	p.setIdProduit(idProduit);
 	p.setNomProduit(nomProduit);
 	p.setStock(stock);
 	p.setPrix(prix);
@@ -147,7 +147,6 @@ public class MagasinSoapService {
 	//++++++++++++++++++++++++++++AJOUT PRODUIT MAGASIN+++++++++++++++++++++++++++++++++++++++
 	@WebMethod
 	public void ajouterPPMagasin(
-			@WebParam(name="idProduit")long idProduit,
 			@WebParam(name="nomProduit")String nomProduit,
 			@WebParam(name="stock")int stock,
 			@WebParam(name="prix")double prix,
@@ -166,7 +165,6 @@ public class MagasinSoapService {
 	
 	@WebMethod
 	public void ajouterPNPMagasin(
-			@WebParam(name="idProduit")long idProduit,
 			@WebParam(name="nomProduit")String nomProduit,
 			@WebParam(name="stock")int stock,
 			@WebParam(name="prix")double prix,

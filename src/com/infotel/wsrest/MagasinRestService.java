@@ -50,10 +50,9 @@ public class MagasinRestService {
 	}
 	
 	@GET
-	@Path("ajouterProduitNonPerissable/{idProduit}/{nomProduit}/{stock}/{prix}/{modeDemploi}")
+	@Path("ajouterProduitNonPerissable/{nomProduit}/{stock}/{prix}/{modeDemploi}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public void ajouterProduitNonPerissable(
-			@PathParam(value="idProduit")long idProduit,
 			@PathParam(value="nomProduit")String nomProduit,
 			@PathParam(value="stock")int stock,
 			@PathParam(value="prix")double prix,
@@ -69,10 +68,9 @@ public class MagasinRestService {
 	}
 	
 	@GET
-	@Path("ajouterProduitPerissable/{idProduit}/{nomProduit}/{stock}/{prix}/{dateLimiteUtilisation}")
+	@Path("ajouterProduitPerissable/{nomProduit}/{stock}/{prix}/{dateLimiteUtilisation}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public void ajouterProduitPerissable(
-			@PathParam(value="idProduit")long idProduit,
 			@PathParam(value="nomProduit")String nomProduit,
 			@PathParam(value="stock")int stock,
 			@PathParam(value="prix")double prix,
@@ -88,10 +86,9 @@ public class MagasinRestService {
 	}
 	
 	@GET
-	@Path("ajouterPPMagasin/{idProduit}/{nomProduit}/{stock}/{prix}/{dateLimiteUtilisation}/{idMagasin}")
+	@Path("ajouterPPMagasin/{nomProduit}/{stock}/{prix}/{dateLimiteUtilisation}/{idMagasin}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public void ajouterPPMagasin(
-			@PathParam(value="idProduit")long idProduit,
 			@PathParam(value="nomProduit")String nomProduit,
 			@PathParam(value="stock")int stock,
 			@PathParam(value="prix")double prix,
@@ -109,10 +106,9 @@ public class MagasinRestService {
 	}
 	
 	@GET
-	@Path("ajouterPNPMagasin/{idProduit}/{nomProduit}/{stock}/{prix}/{modeDemploi}/{idMagasin}")
+	@Path("ajouterPNPMagasin/{nomProduit}/{stock}/{prix}/{modeDemploi}/{idMagasin}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public void ajouterPNPMagasin(
-			@PathParam(value="idProduit")long idProduit,
 			@PathParam(value="nomProduit")String nomProduit,
 			@PathParam(value="stock")int stock,
 			@PathParam(value="prix")double prix,
@@ -139,6 +135,7 @@ public class MagasinRestService {
 			@PathParam(value="prixDuLocal")double prixDuLocal) {
 	
 	Magasin m = new Magasin();
+	m.setIdMagasin(idMagasin);
 	m.setNomMagasin(nomMagasin);
 	m.setCodeMagasin(codeMagasin);
 	m.setPrixDuLocal(prixDuLocal);
@@ -157,6 +154,7 @@ public class MagasinRestService {
 			@PathParam(value="modeDemploi")String modeDemploi) {
 	
 	ProduitNonPerissable p = new ProduitNonPerissable();
+	p.setIdProduit(idProduit);
 	p.setNomProduit(nomProduit);
 	p.setStock(stock);
 	p.setPrix(prix);
@@ -176,6 +174,7 @@ public class MagasinRestService {
 			@PathParam(value="dateLimiteUtilisation")Date dateLimiteUtilisation) {
 	
 	ProduitPerissable p = new ProduitPerissable();
+	p.setIdProduit(idProduit);
 	p.setNomProduit(nomProduit);
 	p.setStock(stock);
 	p.setPrix(prix);
