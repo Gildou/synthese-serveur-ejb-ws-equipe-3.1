@@ -68,38 +68,36 @@ public class MagasinRestService {
 	}
 	
 	@GET
-	@Path("ajouterProduitPerissable/{nomProduit}/{stock}/{prix}/{dateLimiteUtilisation}")
+	@Path("ajouterProduitPerissable/{nomProduit}/{stock}/{prix}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public void ajouterProduitPerissable(
 			@PathParam(value="nomProduit")String nomProduit,
 			@PathParam(value="stock")int stock,
-			@PathParam(value="prix")double prix,
-			@PathParam(value="dateLimiteUtilisation")Date dateLimiteUtilisation) {
+			@PathParam(value="prix")double prix){
 	
 	ProduitPerissable p = new ProduitPerissable();
 	p.setNomProduit(nomProduit);
 	p.setStock(stock);
 	p.setPrix(prix);
-	p.setDateLimiteUtilisation(dateLimiteUtilisation);
+	p.setDateLimiteUtilisation(new Date());
 	
 	dao.ajouterProduitPerissable(p);
 	}
 	
 	@GET
-	@Path("ajouterPPMagasin/{nomProduit}/{stock}/{prix}/{dateLimiteUtilisation}/{idMagasin}")
+	@Path("ajouterPPMagasin/{nomProduit}/{stock}/{prix}/{idMagasin}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public void ajouterPPMagasin(
 			@PathParam(value="nomProduit")String nomProduit,
 			@PathParam(value="stock")int stock,
 			@PathParam(value="prix")double prix,
-			@PathParam(value="dateLimiteUtilisation")Date dateLimiteUtilisation,
 			@PathParam(value="idMagasin")long idMagasin) {
 		
 		ProduitPerissable p = new ProduitPerissable();
 		p.setNomProduit(nomProduit);
 		p.setStock(stock);
 		p.setPrix(prix);
-		p.setDateLimiteUtilisation(dateLimiteUtilisation);
+		p.setDateLimiteUtilisation(new Date());
 		
 		dao.ajouterProduit(p, idMagasin);
 		
@@ -164,21 +162,20 @@ public class MagasinRestService {
 	}
 	
 	@GET
-	@Path("modifierProduitPerissable/{idProduit}/{nomProduit}/{stock}/{prix}/{dateLimiteUtilisation}")
+	@Path("modifierProduitPerissable/{idProduit}/{nomProduit}/{stock}/{prix}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public void modifierProduitPerissable(
 			@PathParam(value="idProduit")long idProduit,
 			@PathParam(value="nomProduit")String nomProduit,
 			@PathParam(value="stock")int stock,
-			@PathParam(value="prix")double prix,
-			@PathParam(value="dateLimiteUtilisation")Date dateLimiteUtilisation) {
+			@PathParam(value="prix")double prix){
 	
 	ProduitPerissable p = new ProduitPerissable();
 	p.setIdProduit(idProduit);
 	p.setNomProduit(nomProduit);
 	p.setStock(stock);
 	p.setPrix(prix);
-	p.setDateLimiteUtilisation(dateLimiteUtilisation);
+	p.setDateLimiteUtilisation(new Date());
 	
 	dao.modifierProduitPerissable(p);
 	}

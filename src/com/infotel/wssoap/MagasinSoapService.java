@@ -65,14 +65,13 @@ public class MagasinSoapService {
 	public void ajouterProduitPerissable(
 			@WebParam(name="nomProduit")String nomProduit,
 			@WebParam(name="stock")int stock,
-			@WebParam(name="prix")double prix,
-			@WebParam(name="dateLimiteUtilisation")Date dateLimiteUtilisation) {
+			@WebParam(name="prix")double prix) {
 	
 	ProduitPerissable p = new ProduitPerissable();
 	p.setNomProduit(nomProduit);
 	p.setStock(stock);
 	p.setPrix(prix);
-	p.setDateLimiteUtilisation(dateLimiteUtilisation);
+	p.setDateLimiteUtilisation(new Date());
 	
 	dao.ajouterProduitPerissable(p);
 	}
@@ -118,15 +117,14 @@ public class MagasinSoapService {
 			@WebParam(name="idProduit")long idProduit,
 			@WebParam(name="nomProduit")String nomProduit,
 			@WebParam(name="stock")int stock,
-			@WebParam(name="prix")double prix,
-			@WebParam(name="dateLimiteUtilisation")Date dateLimiteUtilisation) {
+			@WebParam(name="prix")double prix){
 	
 	ProduitPerissable p = new ProduitPerissable();
 	p.setIdProduit(idProduit);
 	p.setNomProduit(nomProduit);
 	p.setStock(stock);
 	p.setPrix(prix);
-	p.setDateLimiteUtilisation(dateLimiteUtilisation);
+	p.setDateLimiteUtilisation(new Date());
 	
 	dao.modifierProduitPerissable(p);
 	}
@@ -150,14 +148,13 @@ public class MagasinSoapService {
 			@WebParam(name="nomProduit")String nomProduit,
 			@WebParam(name="stock")int stock,
 			@WebParam(name="prix")double prix,
-			@WebParam(name="dateLimiteUtilisation")Date dateLimiteUtilisation,
 			@WebParam(name="idMagasin")long idMagasin) {
 		
 		ProduitPerissable p = new ProduitPerissable();
 		p.setNomProduit(nomProduit);
 		p.setStock(stock);
 		p.setPrix(prix);
-		p.setDateLimiteUtilisation(dateLimiteUtilisation);
+		p.setDateLimiteUtilisation(new Date());
 		
 		dao.ajouterProduit(p, idMagasin);
 		
