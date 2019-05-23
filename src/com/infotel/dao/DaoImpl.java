@@ -125,7 +125,7 @@ public class DaoImpl implements IdaoLocal, IdaoRemote {
 
 	@Override
 	public List<ProduitNonPerissable> getAllProduitNonPerissable() {
-		return em.createQuery("SELECT p FROM Produit p where TYPE_PROD=ProdNonPeri").getResultList();
+		return em.createQuery("SELECT p FROM ProduitNonPerissable p").getResultList();
 	}
 
 	@Override
