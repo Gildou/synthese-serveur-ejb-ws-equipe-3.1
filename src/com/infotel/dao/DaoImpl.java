@@ -143,6 +143,7 @@ public class DaoImpl implements IdaoLocal, IdaoRemote {
 	
 	@Override
 	public double calculPrixMagasin(Magasin m) {
+		long idMagasin = m.getIdMagasin();
 		double prixP=0;
 		for(Produit p : m.getProduits()) {
 			prixP = prixP + (p.getPrix()*p.getStock());
