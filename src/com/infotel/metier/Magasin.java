@@ -56,7 +56,7 @@ public class Magasin implements Serializable{
 	public void setPrixDuLocal(double prixDuLocal) {
 		this.prixDuLocal = prixDuLocal;
 	}
-	
+	@JsonIgnore
 	public List<Produit> getProduits() {
 		return produits;
 	}
