@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,7 +28,7 @@ public class Magasin implements Serializable{
 	private String nomMagasin;
 	private int codeMagasin;
 	private double prixDuLocal;
-	@OneToMany(mappedBy = "magasin", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "magasin", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
 	private List<Produit> produits = new ArrayList<Produit>();
 	
 	public long getIdMagasin() {
@@ -55,7 +56,7 @@ public class Magasin implements Serializable{
 	public void setPrixDuLocal(double prixDuLocal) {
 		this.prixDuLocal = prixDuLocal;
 	}
-	@JsonIgnore
+	
 	public List<Produit> getProduits() {
 		return produits;
 	}
@@ -64,9 +65,10 @@ public class Magasin implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "Magasin [idMagasin=" + idMagasin + ", nomMagasin=" + nomMagasin + ", codeMagasin=" + codeMagasin + ", prixDuLocal="
-				+ prixDuLocal +"]";
+		return "Magasin [idMagasin=" + idMagasin + ", nomMagasin=" + nomMagasin + ", codeMagasin=" + codeMagasin
+				+ ", prixDuLocal=" + prixDuLocal + ", produits=" + produits + "]";
 	}
+	
 	
 	
 }

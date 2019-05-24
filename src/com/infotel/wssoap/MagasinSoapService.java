@@ -138,8 +138,8 @@ public class MagasinSoapService {
 		
 		Magasin m = new Magasin();
 		m =dao.getMagasin(idMagasin);
-		
-		return dao.calculPrixMagasin(m);
+	 
+		return  dao.calculPrixMagasin(m);
 		
 	}
 	
